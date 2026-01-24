@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Horario Escolar</title>
+<title>HORARIO ESCOLAR</title>
 
 <style>
 body{
@@ -12,143 +12,91 @@ body{
 h1{
     text-align:center;
 }
+
 table{
     border-collapse:collapse;
     margin:auto;
     width:95%;
     background:white;
 }
+
 th,td{
     border:1px solid #ccc;
-    padding:8px;
+    padding:10px;
     text-align:center;
 }
+
 th{
     background:#2c3e50;
     color:white;
 }
+
 .hora{
     background:#ecf0f1;
     font-weight:bold;
 }
-.materia{
-    background:#a5d6a7;
-    cursor:pointer;
+
+/* COLORES POR MATERIA */
+.hematologia{ background:#e57373; cursor:pointer; }
+.genetica{ background:#fff176; cursor:pointer; }
+.infectologia{ background:#64b5f6; cursor:pointer; }
+.inmunologia{ background:#ffb74d; cursor:pointer; }
+.bio-practica{ background:#e0e0e0; cursor:pointer; }
+.bio-teoria{ background:#ba68c8; cursor:pointer; }
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
 }
-.materia:hover{
-    background:#81c784;
+
+.modal-contenido{
+    background:white;
+    width:400px;
+    padding:30px;
+    margin:15% auto;
+    text-align:center;
+    border-radius:10px;
+}
+
+.cerrar{
+    background:#c0392b;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+    margin-top:20px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Horario Escolar</h1>
+<h1>HORARIO ESCOLAR</h1>
 
 <table>
 <tr>
-    <th>Hora</th>
-    <th>Lunes</th>
-    <th>Martes</th>
-    <th>Miércoles</th>
-    <th>Jueves</th>
-    <th>Viernes</th>
+    <th>HORA</th>
+    <th>LUNES</th>
+    <th>MARTES</th>
+    <th>MIÉRCOLES</th>
+    <th>JUEVES</th>
+    <th>VIERNES</th>
 </tr>
 
 <tr>
     <td class="hora">7:00 - 8:00</td>
-    <td rowspan="3" class="materia" onclick="mostrar('Inmunología','Ernesto Alvarado Flores')">Inmunología</td>
-    <td class="materia" onclick="mostrar('Bioinformática','Victor Ramón Herrera Acosta')">Bioinformática</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td rowspan="3" class="inmunologia" onclick="abrirModal('INMUNOLOGÍA','ERNESTO ALVARADO FLORES')">INMUNOLOGÍA</td>
+    <td class="bio-teoria" onclick="abrirModal('BIOINFORMÁTICA','VICTOR RAMÓN HERRERA ACOSTA')">BIOINFORMÁTICA</td>
+    <td></td><td></td><td></td>
 </tr>
 
 <tr>
     <td class="hora">8:00 - 9:00</td>
-    <td class="materia" onclick="mostrar('Bioinformática Médica Práctica','Victor Ramón Herrera Acosta')">Bioinf. Médica Práctica</td>
-    <td rowspan="2" class="materia" onclick="mostrar('Hematología','Carlos Alberto Rocha Rodríguez')">Hematología</td>
-    <td></td>
-    <td></td>
-</tr>
-
-<tr>
-    <td class="hora">9:00 - 10:00</td>
-    <td rowspan="2" class="materia" onclick="mostrar('Inmunología','Ernesto Alvarado Flores')">Inmunología</td>
-    <td></td>
-    <td></td>
-</tr>
-
-<tr>
-    <td class="hora">10:00 - 11:00</td>
-    <td rowspan="2" class="materia" onclick="mostrar('Hematología','Carlos Alberto Rocha Rodríguez')">Hematología</td>
-    <td rowspan="3" class="materia" onclick="mostrar('Nutrición','Leopoldo Sánchez Ortega')">Nutrición</td>
-    <td></td>
-    <td></td>
-</tr>
-
-<tr>
-    <td class="hora">11:00 - 12:00</td>
-    <td class="materia" onclick="mostrar('Hematología','Carlos Alberto Rocha Rodríguez')">Hematología</td>
-    <td></td>
-    <td></td>
-</tr>
-
-<tr>
-    <td class="hora">12:00 - 13:00</td>
-    <td rowspan="2" class="materia" onclick="mostrar('Infectología','Hector Hernandez Herrera')">Infectología</td>
-    <td rowspan="2" class="materia" onclick="mostrar('Infectología','Hector Hernandez Herrera')">Infectología</td>
-    <td></td>
-    <td></td>
-</tr>
-
-<tr>
-    <td class="hora">13:00 - 14:00</td>
-    <td class="materia" onclick="mostrar('Genética','Gerardo Antonio Flores Díaz')">Genética</td>
-    <td></td>
-    <td></td>
-</tr>
-
-<tr>
-    <td class="hora">14:00 - 15:00</td>
-    <td></td>
-    <td rowspan="2" class="materia" onclick="mostrar('Genética','Gerardo Antonio Flores Díaz')">Genética</td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
-
-<tr>
-    <td class="hora">15:00 - 16:00</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
-
-<tr>
-    <td class="hora">16:00 - 17:00</td>
-    <td></td><td></td><td></td><td></td><td></td>
-</tr>
-
-<tr>
-    <td class="hora">17:00 - 18:00</td>
-    <td rowspan="2" class="materia" onclick="mostrar('Bioinformática Médica Práctica','Victor Ramón Herrera Acosta')">Bioinf. Médica Práctica</td>
-    <td></td><td></td><td></td><td></td>
-</tr>
-
-<tr>
-    <td class="hora">18:00 - 19:00</td>
-    <td></td><td></td><td></td><td></td>
-</tr>
-
-</table>
-
-<script>
-function mostrar(materia, docente){
-    alert("Materia: " + materia + "\nDocente: " + docente);
-}
-</script>
-
-</body>
-</html>
+    <td class="bio-practica" onclick="abrirModal('BIOINFORMÁTICA MÉDICA PRÁCTICA','VICTOR RAMÓN HERRERA ACOSTA')">BIOINF. MÉDICA PRÁCTICA</td>
+    <td rowspan="2" class="hematologia" onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">HEMATOLOGÍA</td>
