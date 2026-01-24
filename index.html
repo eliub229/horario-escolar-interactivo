@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Horario Escolar Interactivo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: #ffffff;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: #2c7be5;
+      color: white;
+    }
+    td.clase {
+      background: #e9f2ff;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    td.clase:hover {
+      background: #cfe2ff;
+    }
+    .nota {
+      margin-top: 15px;
+      text-align: center;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<h1>📅 Horario Escolar</h1>
+
+<table>
+  <tr>
+    <th>Hora</th>
+    <th>Lunes</th>
+    <th>Martes</th>
+    <th>Miércoles</th>
+    <th>Jueves</th>
+    <th>Viernes</th>
+  </tr>
+
+  <tr>
+    <td>7:00 - 8:00</td>
+    <td class="clase" onclick="mostrarDocente('Dr. Herrera')">Hematología</td>
+    <td></td>
+    <td class="clase" onclick="mostrarDocente('Dra. Rocha')">Genética</td>
+    <td></td>
+    <td class="clase" onclick="mostrarDocente('Dr. Ernesto')">Inmunología</td>
+  </tr>
+
+  <tr>
+    <td>8:00 - 9:00</td>
+    <td></td>
+    <td class="clase" onclick="mostrarDocente('Dr. López')">Nutrición</td>
+    <td></td>
+    <td class="clase" onclick="mostrarDocente('Dra. Martínez')">Infectología</td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>9:00 - 10:00</td>
+    <td class="clase" onclick="mostrarDocente('Dr. Sánchez')">Bioinformática Médica</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>10:00 - 11:00</td>
+    <td></td>
+    <td></td>
+    <td class="clase" onclick="mostrarDocen
 
