@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>HORARIO ESCOLAR</title>
+<title>HORARIO ESCOLAR 5° "J"</title>
 
 <style>
 body{
@@ -22,7 +22,7 @@ table{
 
 th, td{
     border:1px solid #ccc;
-    padding:6px; /* MÁS PEQUEÑO */
+    padding:6px;
     text-align:center;
     font-size:14px;
 }
@@ -37,7 +37,7 @@ th{
     font-weight:bold;
 }
 
-/* COLORES POR MATERIA */
+/* COLORES */
 .hematologia{ background:#e57373; cursor:pointer; }
 .genetica{ background:#fff176; cursor:pointer; }
 .infectologia{ background:#64b5f6; cursor:pointer; }
@@ -45,7 +45,12 @@ th{
 .nutricion{ background:#81c784; cursor:pointer; }
 .bio-practica{ background:#e0e0e0; cursor:pointer; }
 .bio-teoria{ background:#ba68c8; cursor:pointer; }
-.practica-clinica{ background:#ffffff; cursor:pointer; }
+.practica-clinica{
+    background:#ffffff;
+    cursor:pointer;
+    vertical-align:middle;
+    font-weight:bold;
+}
 
 /* MODAL */
 .modal{
@@ -97,8 +102,12 @@ th{
 <td rowspan="3" class="inmunologia" onclick="abrirModal('INMUNOLOGÍA','ERNESTO ALVARADO FLORES')">INMUNOLOGÍA</td>
 <td class="bio-teoria" onclick="abrirModal('BIOINFORMÁTICA','VICTOR RAMÓN HERRERA ACOSTA')">BIOINFORMÁTICA</td>
 <td></td>
-<td rowspan="12" class="practica-clinica" onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','NO ASIGNADO')">PRÁCTICA CLÍNICA GENERAL</td>
-<td rowspan="12" class="practica-clinica" onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','NO ASIGNADO')">PRÁCTICA CLÍNICA GENERAL</td>
+<td rowspan="12" class="practica-clinica" onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','NO ASIGNADO')">
+PRÁCTICA<br>CLÍNICA<br>GENERAL
+</td>
+<td rowspan="12" class="practica-clinica" onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','NO ASIGNADO')">
+PRÁCTICA<br>CLÍNICA<br>GENERAL
+</td>
 </tr>
 
 <tr>
