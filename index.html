@@ -8,21 +8,29 @@
 body{
     font-family: Arial, sans-serif;
     background:#f4f6f9;
+    display:flex;
+    justify-content:center;   /* CENTRO HORIZONTAL */
+    align-items:flex-start;   /* NO PEGADO ARRIBA */
+    height:100vh;
+}
+
+/* CONTENEDOR PARA BAJAR EL HORARIO */
+.contenedor{
+    margin-top:80px;          /* 👈 BAJA EL HORARIO */
 }
 
 h1{
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:20px;
 }
 
 /* TABLA */
 table{
     border-collapse:collapse;
-    margin:40px auto;
-    width:auto;
     background:white;
 }
 
+/* CELDAS */
 th, td{
     border:1px solid #000;
     padding:4px;
@@ -30,18 +38,16 @@ th, td{
     font-size:13px;
 }
 
-/* ANCHOS */
+/* ANCHOS UNIFORMES */
 .col-hora{ width:110px; background:#ecf0f1; font-weight:bold; }
-.col-lunes{ width:220px; }
-.col-martes{ width:220px; }
-.col-otros{ width:260px; }
+.col-dia{ width:220px; }
 
 th{
     background:#2c3e50;
     color:white;
 }
 
-/* COLORES MATERIAS */
+/* COLORES */
 .hematologia{ background:#e57373; cursor:pointer; }
 .genetica{ background:#fff176; cursor:pointer; }
 .infectologia{ background:#64b5f6; cursor:pointer; }
@@ -72,7 +78,7 @@ th{
 .modal-contenido{
     background:white;
     width:420px;
-    margin:15% auto;
+    margin:20% auto;
     padding:25px;
     text-align:center;
     border-radius:12px;
@@ -91,16 +97,17 @@ th{
 
 <body>
 
+<div class="contenedor">
 <h1>HORARIO ESCOLAR</h1>
 
 <table>
 <tr>
     <th class="col-hora">HORA</th>
-    <th class="col-lunes">LUNES</th>
-    <th class="col-martes">MARTES</th>
-    <th class="col-otros">MIÉRCOLES</th>
-    <th class="col-otros">JUEVES</th>
-    <th class="col-otros">VIERNES</th>
+    <th class="col-dia">LUNES</th>
+    <th class="col-dia">MARTES</th>
+    <th class="col-dia">MIÉRCOLES</th>
+    <th class="col-dia">JUEVES</th>
+    <th class="col-dia">VIERNES</th>
 </tr>
 
 <tr>
@@ -186,7 +193,9 @@ BIOINF. MÉDICA PRÁCTICA</td>
 <td class="col-hora">18:00 - 19:00</td>
 <td></td><td></td>
 </tr>
+
 </table>
+</div>
 
 <!-- MODAL -->
 <div id="modal" class="modal">
@@ -209,6 +218,4 @@ function cerrarModal(){
 }
 </script>
 
-</body>
-</html>
-
+</b
