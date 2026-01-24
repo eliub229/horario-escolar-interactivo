@@ -22,8 +22,9 @@ table{
 
 th, td{
     border:1px solid #ccc;
-    padding:10px;
+    padding:6px; /* MÁS PEQUEÑO */
     text-align:center;
+    font-size:14px;
 }
 
 th{
@@ -36,13 +37,15 @@ th{
     font-weight:bold;
 }
 
-/* COLORES */
+/* COLORES POR MATERIA */
 .hematologia{ background:#e57373; cursor:pointer; }
 .genetica{ background:#fff176; cursor:pointer; }
 .infectologia{ background:#64b5f6; cursor:pointer; }
 .inmunologia{ background:#ffb74d; cursor:pointer; }
+.nutricion{ background:#81c784; cursor:pointer; }
 .bio-practica{ background:#e0e0e0; cursor:pointer; }
 .bio-teoria{ background:#ba68c8; cursor:pointer; }
+.practica-clinica{ background:#ffffff; cursor:pointer; }
 
 /* MODAL */
 .modal{
@@ -57,16 +60,16 @@ th{
 
 .modal-contenido{
     background:white;
-    width:450px;
+    width:420px;
     margin:15% auto;
-    padding:30px;
+    padding:25px;
     text-align:center;
     border-radius:12px;
 }
 
 .cerrar{
     margin-top:20px;
-    padding:10px 25px;
+    padding:8px 22px;
     background:#c0392b;
     color:white;
     border:none;
@@ -93,74 +96,70 @@ th{
 <td class="hora">7:00 - 8:00</td>
 <td rowspan="3" class="inmunologia" onclick="abrirModal('INMUNOLOGÍA','ERNESTO ALVARADO FLORES')">INMUNOLOGÍA</td>
 <td class="bio-teoria" onclick="abrirModal('BIOINFORMÁTICA','VICTOR RAMÓN HERRERA ACOSTA')">BIOINFORMÁTICA</td>
-<td></td><td></td><td></td>
+<td></td>
+<td rowspan="12" class="practica-clinica" onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','NO ASIGNADO')">PRÁCTICA CLÍNICA GENERAL</td>
+<td rowspan="12" class="practica-clinica" onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','NO ASIGNADO')">PRÁCTICA CLÍNICA GENERAL</td>
 </tr>
 
 <tr>
 <td class="hora">8:00 - 9:00</td>
 <td class="bio-practica" onclick="abrirModal('BIOINFORMÁTICA MÉDICA PRÁCTICA','VICTOR RAMÓN HERRERA ACOSTA')">BIOINF. MÉDICA PRÁCTICA</td>
 <td rowspan="2" class="hematologia" onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">HEMATOLOGÍA</td>
-<td></td><td></td>
 </tr>
 
 <tr>
 <td class="hora">9:00 - 10:00</td>
 <td rowspan="2" class="inmunologia" onclick="abrirModal('INMUNOLOGÍA','ERNESTO ALVARADO FLORES')">INMUNOLOGÍA</td>
-<td></td><td></td>
 </tr>
 
 <tr>
 <td class="hora">10:00 - 11:00</td>
 <td rowspan="2" class="hematologia" onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">HEMATOLOGÍA</td>
-<td rowspan="3" class="inmunologia" onclick="abrirModal('NUTRICIÓN','LEOPOLDO SÁNCHEZ ORTEGA')">NUTRICIÓN</td>
-<td></td><td></td>
+<td rowspan="3" class="nutricion" onclick="abrirModal('NUTRICIÓN','LEOPOLDO SÁNCHEZ ORTEGA')">NUTRICIÓN</td>
 </tr>
 
 <tr>
 <td class="hora">11:00 - 12:00</td>
 <td class="hematologia" onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">HEMATOLOGÍA</td>
-<td></td><td></td>
 </tr>
 
 <tr>
 <td class="hora">12:00 - 13:00</td>
 <td rowspan="2" class="infectologia" onclick="abrirModal('INFECTOLOGÍA','HECTOR HERNANDEZ HERRERA')">INFECTOLOGÍA</td>
 <td rowspan="2" class="infectologia" onclick="abrirModal('INFECTOLOGÍA','HECTOR HERNANDEZ HERRERA')">INFECTOLOGÍA</td>
-<td></td><td></td>
 </tr>
 
 <tr>
 <td class="hora">13:00 - 14:00</td>
 <td class="genetica" onclick="abrirModal('GENÉTICA','GERARDO ANTONIO FLORES DÍAZ')">GENÉTICA</td>
-<td></td><td></td>
 </tr>
 
 <tr>
 <td class="hora">14:00 - 15:00</td>
 <td></td>
 <td rowspan="2" class="genetica" onclick="abrirModal('GENÉTICA','GERARDO ANTONIO FLORES DÍAZ')">GENÉTICA</td>
-<td></td><td></td><td></td>
+<td></td>
 </tr>
 
 <tr>
 <td class="hora">15:00 - 16:00</td>
-<td></td><td></td><td></td><td></td>
+<td></td><td></td>
 </tr>
 
 <tr>
 <td class="hora">16:00 - 17:00</td>
-<td></td><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td>
 </tr>
 
 <tr>
 <td class="hora">17:00 - 18:00</td>
 <td rowspan="2" class="bio-practica" onclick="abrirModal('BIOINFORMÁTICA MÉDICA PRÁCTICA','VICTOR RAMÓN HERRERA ACOSTA')">BIOINF. MÉDICA PRÁCTICA</td>
-<td></td><td></td><td></td><td></td>
+<td></td><td></td>
 </tr>
 
 <tr>
 <td class="hora">18:00 - 19:00</td>
-<td></td><td></td><td></td><td></td>
+<td></td><td></td>
 </tr>
 
 </table>
@@ -188,4 +187,3 @@ function cerrarModal(){
 
 </body>
 </html>
-
