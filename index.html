@@ -1,144 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Horario Escolar</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
-        }
+<meta charset="UTF-8">
+<title>Horario Escolar</title>
 
-        h1 {
-            text-align: center;
-        }
-
-        table {
-            border-collapse: collapse;
-            margin: auto;
-            width: 90%;
-            background: white;
-        }
-
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #2c3e50;
-            color: white;
-        }
-
-        .hora {
-            background-color: #ecf0f1;
-            font-weight: bold;
-        }
-
-        .materia {
-            background-color: #a5d6a7;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .materia:hover {
-            background-color: #81c784;
-        }
-    </style>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+}
+h1{
+    text-align:center;
+}
+table{
+    border-collapse:collapse;
+    margin:auto;
+    width:95%;
+    background:white;
+}
+th,td{
+    border:1px solid #ccc;
+    padding:8px;
+    text-align:center;
+}
+th{
+    background:#2c3e50;
+    color:white;
+}
+.hora{
+    background:#ecf0f1;
+    font-weight:bold;
+}
+.materia{
+    background:#a5d6a7;
+    cursor:pointer;
+}
+.materia:hover{
+    background:#81c784;
+}
+</style>
 </head>
+
 <body>
 
 <h1>Horario Escolar</h1>
 
 <table>
-    <tr>
-        <th>Hora</th>
-        <th>Lunes</th>
-        <th>Martes</th>
-        <th>Miércoles</th>
-    </tr>
+<tr>
+    <th>Hora</th>
+    <th>Lunes</th>
+    <th>Martes</th>
+    <th>Miércoles</th>
+    <th>Jueves</th>
+    <th>Viernes</th>
+</tr>
 
-    <!-- 7:00 - 8:00 -->
-    <tr>
-        <td class="hora">7:00 - 8:00</td>
-        <td class="materia" onclick="mostrar('Inmunología','Ernesto Alvarado Flores')">Inmunología</td>
-        <td class="materia" onclick="mostrar('Bioinformática','Victor Ramón Herrera Acosta')">Bioinformática</td>
-        <td></td>
-    </tr>
+<tr>
+    <td class="hora">7:00 - 8:00</td>
+    <td rowspan="3" class="materia" onclick="mostrar('Inmunología','Ernesto Alvarado Flores')">Inmunología</td>
+    <td class="materia" onclick="mostrar('Bioinformática','Victor Ramón Herrera Acosta')">Bioinformática</td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
 
-    <!-- 8:00 - 9:00 -->
-    <tr>
-        <td class="hora">8:00 - 9:00</td>
-        <td class="materia" onclick="mostrar('Inmunología','Ernesto Alvarado Flores')">Inmunología</td>
-        <td class="materia" onclick="mostrar('Bioinformática Médica Práctica','Victor Ramón Herrera Acosta')">Bioinf. Médica Práctica</td>
-        <td class="materia" onclick="mostrar('Hematología','Carlos Alberto Rocha Rodríguez')">Hematología</td>
-    </tr>
+<tr>
+    <td class="hora">8:00 - 9:00</td>
+    <td class="materia" onclick="mostrar('Bioinformática Médica Práctica','Victor Ramón Herrera Acosta')">Bioinf. Médica Práctica</td>
+    <td rowspan="2" class="materia" onclick="mostrar('Hematología','Carlos Alberto Rocha Rodríguez')">Hematología</td>
+    <td></td>
+    <td></td>
+</tr>
 
-    <!-- 9:00 - 10:00 -->
-    <tr>
-        <td class="hora">9:00 - 10:00</td>
-        <td class="materia" onclick="mostrar('Inmunología','Ernesto Alvarado Flores')">Inmunología</td>
-        <td class="materia" onclick="mostrar('Inmunología','Ernesto Alvarado Flores')">Inmunología</td>
-        <td class="materia" onclick="mostrar('Hematología','Carlos Alberto Rocha Rodríguez')">Hematología</td>
-    </tr>
+<tr>
+    <td class="hora">9:00 - 10:00</td>
+    <td rowspan="2" class="materia" onclick="mostrar('Inmunología','Ernesto Alvarado Flores')">Inmunología</td>
+    <td></td>
+    <td></td>
+</tr>
 
-    <!-- 10:00 - 11:00 -->
-    <tr>
-        <td class="hora">10:00 - 11:00</td>
-        <td class="materia" onclick="mostrar('Hematología','Carlos Alberto Rocha Rodríguez')">Hematología</td>
-        <td class="materia" onclick="mostrar('Inmunología','Ernesto Alvarado Flores')">Inmunología</td>
-        <td class="materia" onclick="mostrar('Nutrición','Leopoldo Sánchez Ortega')">Nutrición</td>
-    </tr>
+<tr>
+    <td class="hora">10:00 - 11:00</td>
+    <td rowspan="2" class="materia" onclick="mostrar('Hematología','Carlos Alberto Rocha Rodríguez')">Hematología</td>
+    <td rowspan="3" class="materia" onclick="mostrar('Nutrición','Leopoldo Sánchez Ortega')">Nutrición</td>
+    <td></td>
+    <td></td>
+</tr>
 
-    <!-- 11:00 - 12:00 -->
-    <tr>
-        <td class="hora">11:00 - 12:00</td>
-        <td class="materia" onclick="mostrar('Hematología','Carlos Alberto Rocha Rodríguez')">Hematología</td>
-        <td class="materia" onclick="mostrar('Hematología','Carlos Alberto Rocha Rodríguez')">Hematología</td>
-        <td class="materia" onclick="mostrar('Nutrición','Leopoldo Sánchez Ortega')">Nutrición</td>
-    </tr>
+<tr>
+    <td class="hora">11:00 - 12:00</td>
+    <td class="materia" onclick="mostrar('Hematología','Carlos Alberto Rocha Rodríguez')">Hematología</td>
+    <td></td>
+    <td></td>
+</tr>
 
-    <!-- 12:00 - 13:00 -->
-    <tr>
-        <td class="hora">12:00 - 13:00</td>
-        <td class="materia" onclick="mostrar('Infectología','Hector Hernandez Herrera')">Infectología</td>
-        <td class="materia" onclick="mostrar('Infectología','Hector Hernandez Herrera')">Infectología</td>
-        <td class="materia" onclick="mostrar('Nutrición','Leopoldo Sánchez Ortega')">Nutrición</td>
-    </tr>
+<tr>
+    <td class="hora">12:00 - 13:00</td>
+    <td rowspan="2" class="materia" onclick="mostrar('Infectología','Hector Hernandez Herrera')">Infectología</td>
+    <td rowspan="2" class="materia" onclick="mostrar('Infectología','Hector Hernandez Herrera')">Infectología</td>
+    <td></td>
+    <td></td>
+</tr>
 
-    <!-- 13:00 - 14:00 -->
-    <tr>
-        <td class="hora">13:00 - 14:00</td>
-        <td class="materia" onclick="mostrar('Infectología','Hector Hernandez Herrera')">Infectología</td>
-        <td class="materia" onclick="mostrar('Infectología','Hector Hernandez Herrera')">Infectología</td>
-        <td class="materia" onclick="mostrar('Genética','Gerardo Antonio Flores Díaz')">Genética</td>
-    </tr>
+<tr>
+    <td class="hora">13:00 - 14:00</td>
+    <td class="materia" onclick="mostrar('Genética','Gerardo Antonio Flores Díaz')">Genética</td>
+    <td></td>
+    <td></td>
+</tr>
 
-    <!-- 14:00 - 15:00 -->
-    <tr>
-        <td class="hora">14:00 - 15:00</td>
-        <td></td>
-        <td class="materia" onclick="mostrar('Genética','Gerardo Antonio Flores Díaz')">Genética</td>
-        <td></td>
-    </tr>
+<tr>
+    <td class="hora">14:00 - 15:00</td>
+    <td></td>
+    <td rowspan="2" class="materia" onclick="mostrar('Genética','Gerardo Antonio Flores Díaz')">Genética</td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
 
-    <!-- 15:00 - 16:00 -->
-    <tr>
-        <td class="hora">15:00 - 16:00</td>
-        <td></td>
-        <td class="materia" onclick="mostrar('Genética','Gerardo Antonio Flores Díaz')">Genética</td>
-        <td></td>
-    </tr>
+<tr>
+    <td class="hora">15:00 - 16:00</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
 
-    <!-- 16:00 - 17:00 -->
-    <tr>
-        <td class="hora">16:00 - 17:00</td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+<tr>
+    <td class="hora">16:00 - 17:00</td>
+    <td></td><td></td><td></td><td></td><td></td>
+</tr>
 
-    <!-- 17:00 - 18:00 -->
-    <tr>
-        <td clas
+<tr>
+    <td class="hora">17:00 - 18:00</td>
+    <td rowspan="2" class="materia" onclick="mostrar('Bioinformática Médica Práctica','Victor Ramón Herrera Acosta')">Bioinf. Médica Práctica</td>
+    <td></td><td></td><td></td><td></td>
+</tr>
+
+<tr>
+    <td class="hora">18:00 - 19:00</td>
+    <td></td><td></td><td></td><td></td>
+</tr>
+
+</table>
+
+<script>
+function mostrar(materia, docente){
+    alert("Materia: " + materia + "\nDocente: " + docente);
+}
+</script>
+
+</body>
+</html>
