@@ -9,35 +9,39 @@ body{
     font-family: Arial, sans-serif;
     background:#f4f6f9;
 }
+
 h1{
     text-align:center;
+    margin-bottom:30px;
 }
 
+/* TABLA */
 table{
     border-collapse:collapse;
-    margin:auto;
-    width:95%;
+    margin:40px auto;
+    width:auto;
     background:white;
 }
 
 th, td{
     border:1px solid #000;
-    padding:6px;
+    padding:4px;
     text-align:center;
-    font-size:14px;
+    font-size:13px;
 }
+
+/* ANCHOS */
+.col-hora{ width:110px; background:#ecf0f1; font-weight:bold; }
+.col-lunes{ width:220px; }
+.col-martes{ width:220px; }
+.col-otros{ width:260px; }
 
 th{
     background:#2c3e50;
     color:white;
 }
 
-.hora{
-    background:#ecf0f1;
-    font-weight:bold;
-}
-
-/* COLORES */
+/* COLORES MATERIAS */
 .hematologia{ background:#e57373; cursor:pointer; }
 .genetica{ background:#fff176; cursor:pointer; }
 .infectologia{ background:#64b5f6; cursor:pointer; }
@@ -46,10 +50,10 @@ th{
 .bio-practica{ background:#e0e0e0; cursor:pointer; }
 .bio-teoria{ background:#ba68c8; cursor:pointer; }
 
-/* PRACTICA CLINICA GENERAL */
 .practica-clinica{
     background:#ffffff;
     font-weight:bold;
+    font-size:16px;
     vertical-align:middle;
     cursor:pointer;
 }
@@ -91,28 +95,27 @@ th{
 
 <table>
 <tr>
-<th class="col-hora">HORA</th>
-<th class="col-dia">LUNES</th>
-<th class="col-dia">MARTES</th>
-<th>MIÉRCOLES</th>
-<th>JUEVES</th>
-<th>VIERNES</th>
+    <th class="col-hora">HORA</th>
+    <th class="col-lunes">LUNES</th>
+    <th class="col-martes">MARTES</th>
+    <th class="col-otros">MIÉRCOLES</th>
+    <th class="col-otros">JUEVES</th>
+    <th class="col-otros">VIERNES</th>
 </tr>
 
 <tr>
-<td class="hora">7:00 - 8:00</td>
+<td class="col-hora">7:00 - 8:00</td>
 <td rowspan="3" class="inmunologia" onclick="abrirModal('INMUNOLOGÍA','ERNESTO ALVARADO FLORES')">INMUNOLOGÍA</td>
 <td class="bio-teoria" onclick="abrirModal('BIOINFORMÁTICA','VICTOR RAMÓN HERRERA ACOSTA')">BIOINFORMÁTICA</td>
 <td></td>
-
 <td rowspan="12" colspan="2" class="practica-clinica"
-onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','NO ASIGNADO')">
+onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','DOCENTE NO ASIGNADO')">
 PRÁCTICA<br>CLÍNICA<br>GENERAL
 </td>
 </tr>
 
 <tr>
-<td class="hora">8:00 - 9:00</td>
+<td class="col-hora">8:00 - 9:00</td>
 <td class="bio-practica" onclick="abrirModal('BIOINFORMÁTICA MÉDICA PRÁCTICA','VICTOR RAMÓN HERRERA ACOSTA')">
 BIOINF. MÉDICA PRÁCTICA</td>
 <td rowspan="2" class="hematologia"
@@ -120,13 +123,13 @@ onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">HEMATOLOG
 </tr>
 
 <tr>
-<td class="hora">9:00 - 10:00</td>
+<td class="col-hora">9:00 - 10:00</td>
 <td rowspan="2" class="inmunologia"
 onclick="abrirModal('INMUNOLOGÍA','ERNESTO ALVARADO FLORES')">INMUNOLOGÍA</td>
 </tr>
 
 <tr>
-<td class="hora">10:00 - 11:00</td>
+<td class="col-hora">10:00 - 11:00</td>
 <td rowspan="2" class="hematologia"
 onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">HEMATOLOGÍA</td>
 <td rowspan="3" class="nutricion"
@@ -134,13 +137,13 @@ onclick="abrirModal('NUTRICIÓN','LEOPOLDO SÁNCHEZ ORTEGA')">NUTRICIÓN</td>
 </tr>
 
 <tr>
-<td class="hora">11:00 - 12:00</td>
+<td class="col-hora">11:00 - 12:00</td>
 <td class="hematologia"
 onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">HEMATOLOGÍA</td>
 </tr>
 
 <tr>
-<td class="hora">12:00 - 13:00</td>
+<td class="col-hora">12:00 - 13:00</td>
 <td rowspan="2" class="infectologia"
 onclick="abrirModal('INFECTOLOGÍA','HECTOR HERNANDEZ HERRERA')">INFECTOLOGÍA</td>
 <td rowspan="2" class="infectologia"
@@ -148,13 +151,13 @@ onclick="abrirModal('INFECTOLOGÍA','HECTOR HERNANDEZ HERRERA')">INFECTOLOGÍA</
 </tr>
 
 <tr>
-<td class="hora">13:00 - 14:00</td>
+<td class="col-hora">13:00 - 14:00</td>
 <td class="genetica"
 onclick="abrirModal('GENÉTICA','GERARDO ANTONIO FLORES DÍAZ')">GENÉTICA</td>
 </tr>
 
 <tr>
-<td class="hora">14:00 - 15:00</td>
+<td class="col-hora">14:00 - 15:00</td>
 <td></td>
 <td rowspan="2" class="genetica"
 onclick="abrirModal('GENÉTICA','GERARDO ANTONIO FLORES DÍAZ')">GENÉTICA</td>
@@ -162,17 +165,17 @@ onclick="abrirModal('GENÉTICA','GERARDO ANTONIO FLORES DÍAZ')">GENÉTICA</td>
 </tr>
 
 <tr>
-<td class="hora">15:00 - 16:00</td>
+<td class="col-hora">15:00 - 16:00</td>
 <td></td><td></td>
 </tr>
 
 <tr>
-<td class="hora">16:00 - 17:00</td>
+<td class="col-hora">16:00 - 17:00</td>
 <td></td><td></td><td></td>
 </tr>
 
 <tr>
-<td class="hora">17:00 - 18:00</td>
+<td class="col-hora">17:00 - 18:00</td>
 <td rowspan="2" class="bio-practica"
 onclick="abrirModal('BIOINFORMÁTICA MÉDICA PRÁCTICA','VICTOR RAMÓN HERRERA ACOSTA')">
 BIOINF. MÉDICA PRÁCTICA</td>
@@ -180,10 +183,9 @@ BIOINF. MÉDICA PRÁCTICA</td>
 </tr>
 
 <tr>
-<td class="hora">18:00 - 19:00</td>
+<td class="col-hora">18:00 - 19:00</td>
 <td></td><td></td>
 </tr>
-
 </table>
 
 <!-- MODAL -->
@@ -209,3 +211,4 @@ function cerrarModal(){
 
 </body>
 </html>
+
