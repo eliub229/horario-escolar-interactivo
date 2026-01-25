@@ -9,59 +9,57 @@ body{
     font-family: Arial, sans-serif;
     background:#f4f6f9;
     display:flex;
-    justify-content:center;   /* CENTRO HORIZONTAL */
-    align-items:flex-start;   /* NO PEGADO ARRIBA */
-    height:100vh;
+    justify-content:center;
+    padding-top:60px;
 }
 
-/* CONTENEDOR PARA BAJAR EL HORARIO */
 .contenedor{
-    margin-top:80px;          /* 👈 BAJA EL HORARIO */
+    width:420px;
 }
 
 h1{
     text-align:center;
-    margin-bottom:20px;
+    margin-bottom:25px;
 }
 
-/* TABLA */
-table{
-    border-collapse:collapse;
-    background:white;
-}
-
-/* CELDAS */
-th, td{
-    border:1px solid #000;
-    padding:4px;
-    text-align:center;
-    font-size:13px;
-}
-
-/* ANCHOS UNIFORMES */
-.col-hora{ width:110px; background:#ecf0f1; font-weight:bold; }
-.col-dia{ width:220px; }
-
-th{
+/* BOTONES DE DÍAS */
+.dia{
     background:#2c3e50;
     color:white;
+    padding:15px;
+    margin-bottom:10px;
+    cursor:pointer;
+    border-radius:8px;
+    font-size:18px;
+    text-align:center;
 }
 
-/* COLORES */
-.hematologia{ background:#e57373; cursor:pointer; }
-.genetica{ background:#fff176; cursor:pointer; }
-.infectologia{ background:#64b5f6; cursor:pointer; }
-.inmunologia{ background:#ffb74d; cursor:pointer; }
-.nutricion{ background:#81c784; cursor:pointer; }
-.bio-practica{ background:#e0e0e0; cursor:pointer; }
-.bio-teoria{ background:#ba68c8; cursor:pointer; }
+.dia:hover{
+    background:#1a252f;
+}
 
-.practica-clinica{
-    background:#ffffff;
-    font-weight:bold;
-    font-size:16px;
-    vertical-align:middle;
+/* CONTENIDO DEL DÍA */
+.contenido-dia{
+    display:none;
+    background:white;
+    border-radius:8px;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+/* CLASE */
+.clase{
+    padding:10px;
+    border-bottom:1px solid #ddd;
     cursor:pointer;
+}
+
+.clase:hover{
+    background:#ecf0f1;
+}
+
+.hora{
+    font-weight:bold;
 }
 
 /* MODAL */
@@ -77,7 +75,7 @@ th{
 
 .modal-contenido{
     background:white;
-    width:420px;
+    width:380px;
     margin:20% auto;
     padding:25px;
     text-align:center;
@@ -100,101 +98,55 @@ th{
 <div class="contenedor">
 <h1>HORARIO ESCOLAR</h1>
 
-<table>
-<tr>
-    <th class="col-hora">HORA</th>
-    <th class="col-dia">LUNES</th>
-    <th class="col-dia">MARTES</th>
-    <th class="col-dia">MIÉRCOLES</th>
-    <th class="col-dia">JUEVES</th>
-    <th class="col-dia">VIERNES</th>
-</tr>
+<!-- LUNES -->
+<div class="dia" onclick="toggleDia('lunes')">LUNES</div>
+<div id="lunes" class="contenido-dia">
+    <div class="clase" onclick="abrirModal('INMUNOLOGÍA','ERNESTO ALVARADO FLORES')">
+        <span class="hora">7:00 - 10:00</span><br>INMUNOLOGÍA
+    </div>
+    <div class="clase" onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">
+        <span class="hora">10:00 - 12:00</span><br>HEMATOLOGÍA
+    </div>
+    <div class="clase" onclick="abrirModal('INFECTOLOGÍA','HECTOR HERNANDEZ HERRERA')">
+        <span class="hora">12:00 - 14:00</span><br>INFECTOLOGÍA
+    </div>
+</div>
 
-<tr>
-<td class="col-hora">7:00 - 8:00</td>
-<td rowspan="3" class="inmunologia" onclick="abrirModal('INMUNOLOGÍA','ERNESTO ALVARADO FLORES')">INMUNOLOGÍA</td>
-<td class="bio-teoria" onclick="abrirModal('BIOINFORMÁTICA','VICTOR RAMÓN HERRERA ACOSTA')">BIOINFORMÁTICA</td>
-<td></td>
-<td rowspan="12" colspan="2" class="practica-clinica"
-onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','DOCENTE NO ASIGNADO')">
-PRÁCTICA<br>CLÍNICA<br>GENERAL
-</td>
-</tr>
+<!-- MARTES -->
+<div class="dia" onclick="toggleDia('martes')">MARTES</div>
+<div id="martes" class="contenido-dia">
+    <div class="clase" onclick="abrirModal('BIOINFORMÁTICA','VICTOR RAMÓN HERRERA ACOSTA')">
+        <span class="hora">7:00 - 9:00</span><br>BIOINFORMÁTICA
+    </div>
+    <div class="clase" onclick="abrirModal('NUTRICIÓN','LEOPOLDO SÁNCHEZ ORTEGA')">
+        <span class="hora">10:00 - 13:00</span><br>NUTRICIÓN
+    </div>
+</div>
 
-<tr>
-<td class="col-hora">8:00 - 9:00</td>
-<td class="bio-practica" onclick="abrirModal('BIOINFORMÁTICA MÉDICA PRÁCTICA','VICTOR RAMÓN HERRERA ACOSTA')">
-BIOINF. MÉDICA PRÁCTICA</td>
-<td rowspan="2" class="hematologia"
-onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">HEMATOLOGÍA</td>
-</tr>
+<!-- MIÉRCOLES -->
+<div class="dia" onclick="toggleDia('miercoles')">MIÉRCOLES</div>
+<div id="miercoles" class="contenido-dia">
+    <div class="clase" onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">
+        <span class="hora">8:00 - 10:00</span><br>HEMATOLOGÍA
+    </div>
+</div>
 
-<tr>
-<td class="col-hora">9:00 - 10:00</td>
-<td rowspan="2" class="inmunologia"
-onclick="abrirModal('INMUNOLOGÍA','ERNESTO ALVARADO FLORES')">INMUNOLOGÍA</td>
-</tr>
+<!-- JUEVES -->
+<div class="dia" onclick="toggleDia('jueves')">JUEVES</div>
+<div id="jueves" class="contenido-dia">
+    <div class="clase" onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','DOCENTE NO ASIGNADO')">
+        <span class="hora">7:00 - 19:00</span><br>PRÁCTICA CLÍNICA GENERAL
+    </div>
+</div>
 
-<tr>
-<td class="col-hora">10:00 - 11:00</td>
-<td rowspan="2" class="hematologia"
-onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">HEMATOLOGÍA</td>
-<td rowspan="3" class="nutricion"
-onclick="abrirModal('NUTRICIÓN','LEOPOLDO SÁNCHEZ ORTEGA')">NUTRICIÓN</td>
-</tr>
+<!-- VIERNES -->
+<div class="dia" onclick="toggleDia('viernes')">VIERNES</div>
+<div id="viernes" class="contenido-dia">
+    <div class="clase" onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','DOCENTE NO ASIGNADO')">
+        <span class="hora">7:00 - 19:00</span><br>PRÁCTICA CLÍNICA GENERAL
+    </div>
+</div>
 
-<tr>
-<td class="col-hora">11:00 - 12:00</td>
-<td class="hematologia"
-onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">HEMATOLOGÍA</td>
-</tr>
-
-<tr>
-<td class="col-hora">12:00 - 13:00</td>
-<td rowspan="2" class="infectologia"
-onclick="abrirModal('INFECTOLOGÍA','HECTOR HERNANDEZ HERRERA')">INFECTOLOGÍA</td>
-<td rowspan="2" class="infectologia"
-onclick="abrirModal('INFECTOLOGÍA','HECTOR HERNANDEZ HERRERA')">INFECTOLOGÍA</td>
-</tr>
-
-<tr>
-<td class="col-hora">13:00 - 14:00</td>
-<td class="genetica"
-onclick="abrirModal('GENÉTICA','GERARDO ANTONIO FLORES DÍAZ')">GENÉTICA</td>
-</tr>
-
-<tr>
-<td class="col-hora">14:00 - 15:00</td>
-<td></td>
-<td rowspan="2" class="genetica"
-onclick="abrirModal('GENÉTICA','GERARDO ANTONIO FLORES DÍAZ')">GENÉTICA</td>
-<td></td>
-</tr>
-
-<tr>
-<td class="col-hora">15:00 - 16:00</td>
-<td></td><td></td>
-</tr>
-
-<tr>
-<td class="col-hora">16:00 - 17:00</td>
-<td></td><td></td><td></td>
-</tr>
-
-<tr>
-<td class="col-hora">17:00 - 18:00</td>
-<td rowspan="2" class="bio-practica"
-onclick="abrirModal('BIOINFORMÁTICA MÉDICA PRÁCTICA','VICTOR RAMÓN HERRERA ACOSTA')">
-BIOINF. MÉDICA PRÁCTICA</td>
-<td></td><td></td>
-</tr>
-
-<tr>
-<td class="col-hora">18:00 - 19:00</td>
-<td></td><td></td>
-</tr>
-
-</table>
 </div>
 
 <!-- MODAL -->
@@ -207,6 +159,11 @@ BIOINF. MÉDICA PRÁCTICA</td>
 </div>
 
 <script>
+function toggleDia(id){
+    const dia = document.getElementById(id);
+    dia.style.display = dia.style.display === "block" ? "none" : "block";
+}
+
 function abrirModal(materia, docente){
     document.getElementById("materia").innerText = materia;
     document.getElementById("docente").innerText = "DOCENTE: " + docente;
@@ -218,4 +175,6 @@ function cerrarModal(){
 }
 </script>
 
-</b
+</body>
+</html>
+
