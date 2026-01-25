@@ -14,7 +14,7 @@ body{
 }
 
 .contenedor{
-    width:420px;
+    width:480px;
 }
 
 h1{
@@ -22,34 +22,42 @@ h1{
     margin-bottom:25px;
 }
 
-/* BOTONES DE DÍAS */
-.dia{
-    background:#2c3e50;
-    color:white;
-    padding:15px;
-    margin-bottom:10px;
-    cursor:pointer;
-    border-radius:8px;
-    font-size:18px;
-    text-align:center;
+/* ====== DÍAS HORIZONTALES ====== */
+.tabs{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
 }
 
-.dia:hover{
+.tab{
+    flex:1;
+    text-align:center;
+    padding:12px;
+    background:#2c3e50;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.tab:hover{
     background:#1a252f;
 }
 
-/* CONTENIDO DEL DÍA */
+.tab.activo{
+    background:#2980b9;
+}
+
+/* ====== CONTENIDO ====== */
 .contenido-dia{
     display:none;
     background:white;
     border-radius:8px;
     padding:15px;
-    margin-bottom:15px;
 }
 
-/* CLASE */
+/* ====== CLASE ====== */
 .clase{
-    padding:10px;
+    padding:12px;
     border-bottom:1px solid #ddd;
     cursor:pointer;
 }
@@ -62,7 +70,7 @@ h1{
     font-weight:bold;
 }
 
-/* MODAL */
+/* ====== MODAL ====== */
 .modal{
     display:none;
     position:fixed;
@@ -98,9 +106,17 @@ h1{
 <div class="contenedor">
 <h1>HORARIO ESCOLAR</h1>
 
-<!-- LUNES -->
-<div class="dia" onclick="toggleDia('lunes')">LUNES</div>
-<div id="lunes" class="contenido-dia">
+<!-- TABS -->
+<div class="tabs">
+    <div class="tab activo" onclick="mostrarDia('lunes', this)">LUNES</div>
+    <div class="tab" onclick="mostrarDia('martes', this)">MARTES</div>
+    <div class="tab" onclick="mostrarDia('miercoles', this)">MIÉRCOLES</div>
+    <div class="tab" onclick="mostrarDia('jueves', this)">JUEVES</div>
+    <div class="tab" onclick="mostrarDia('viernes', this)">VIERNES</div>
+</div>
+
+<!-- ====== LUNES ====== -->
+<div id="lunes" class="contenido-dia" style="display:block">
     <div class="clase" onclick="abrirModal('INMUNOLOGÍA','ERNESTO ALVARADO FLORES')">
         <span class="hora">7:00 - 10:00</span><br>INMUNOLOGÍA
     </div>
@@ -110,37 +126,45 @@ h1{
     <div class="clase" onclick="abrirModal('INFECTOLOGÍA','HECTOR HERNANDEZ HERRERA')">
         <span class="hora">12:00 - 14:00</span><br>INFECTOLOGÍA
     </div>
+    <div class="clase" onclick="abrirModal('BIOINFORMÁTICA MÉDICA PRÁCTICA','VICTOR RAMÓN HERRERA ACOSTA')">
+        <span class="hora">17:00 - 19:00</span><br>BIOINF. MÉDICA PRÁCTICA
+    </div>
 </div>
 
-<!-- MARTES -->
-<div class="dia" onclick="toggleDia('martes')">MARTES</div>
+<!-- ====== MARTES ====== -->
 <div id="martes" class="contenido-dia">
     <div class="clase" onclick="abrirModal('BIOINFORMÁTICA','VICTOR RAMÓN HERRERA ACOSTA')">
-        <span class="hora">7:00 - 9:00</span><br>BIOINFORMÁTICA
+        <span class="hora">7:00 - 8:00</span><br>BIOINFORMÁTICA
+    </div>
+    <div class="clase" onclick="abrirModal('BIOINFORMÁTICA MÉDICA PRÁCTICA','VICTOR RAMÓN HERRERA ACOSTA')">
+        <span class="hora">8:00 - 9:00</span><br>BIOINF. MÉDICA PRÁCTICA
     </div>
     <div class="clase" onclick="abrirModal('NUTRICIÓN','LEOPOLDO SÁNCHEZ ORTEGA')">
         <span class="hora">10:00 - 13:00</span><br>NUTRICIÓN
     </div>
+    <div class="clase" onclick="abrirModal('GENÉTICA','GERARDO ANTONIO FLORES DÍAZ')">
+        <span class="hora">14:00 - 16:00</span><br>GENÉTICA
+    </div>
 </div>
 
-<!-- MIÉRCOLES -->
-<div class="dia" onclick="toggleDia('miercoles')">MIÉRCOLES</div>
+<!-- ====== MIÉRCOLES ====== -->
 <div id="miercoles" class="contenido-dia">
     <div class="clase" onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">
         <span class="hora">8:00 - 10:00</span><br>HEMATOLOGÍA
     </div>
+    <div class="clase" onclick="abrirModal('INMUNOLOGÍA','ERNESTO ALVARADO FLORES')">
+        <span class="hora">9:00 - 11:00</span><br>INMUNOLOGÍA
+    </div>
 </div>
 
-<!-- JUEVES -->
-<div class="dia" onclick="toggleDia('jueves')">JUEVES</div>
+<!-- ====== JUEVES ====== -->
 <div id="jueves" class="contenido-dia">
     <div class="clase" onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','DOCENTE NO ASIGNADO')">
         <span class="hora">7:00 - 19:00</span><br>PRÁCTICA CLÍNICA GENERAL
     </div>
 </div>
 
-<!-- VIERNES -->
-<div class="dia" onclick="toggleDia('viernes')">VIERNES</div>
+<!-- ====== VIERNES ====== -->
 <div id="viernes" class="contenido-dia">
     <div class="clase" onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','DOCENTE NO ASIGNADO')">
         <span class="hora">7:00 - 19:00</span><br>PRÁCTICA CLÍNICA GENERAL
@@ -159,9 +183,11 @@ h1{
 </div>
 
 <script>
-function toggleDia(id){
-    const dia = document.getElementById(id);
-    dia.style.display = dia.style.display === "block" ? "none" : "block";
+function mostrarDia(id, elemento){
+    document.querySelectorAll('.contenido-dia').forEach(d => d.style.display = "none");
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove("activo"));
+    document.getElementById(id).style.display = "block";
+    elemento.classList.add("activo");
 }
 
 function abrirModal(materia, docente){
@@ -177,4 +203,3 @@ function cerrarModal(){
 
 </body>
 </html>
-
