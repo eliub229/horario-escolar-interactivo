@@ -14,7 +14,7 @@ body{
 }
 
 .contenedor{
-    width:520px;
+    width:540px;
 }
 
 h1{
@@ -22,41 +22,53 @@ h1{
     margin-bottom:30px;
 }
 
-/* ====== DÍAS HORIZONTALES ====== */
+/* ====== DÍAS ====== */
 .tabs{
     display:flex;
-    gap:12px; /* 👈 MÁS DESPEGADOS */
+    gap:12px;
     margin-bottom:20px;
 }
 
 .tab{
     flex:1;
     text-align:center;
-    padding:14px 10px;
+    padding:14px;
     background:#34495e;
     color:white;
     cursor:pointer;
     font-weight:bold;
-    border-radius:14px; /* 👈 ESQUINAS OVALADAS */
+    border-radius:14px;
     transition:0.3s;
 }
 
-.tab:hover{
-    background:#2c3e50;
-}
-
-.tab.activo{
-    background:#2980b9;
-}
+.tab:hover{ background:#2c3e50; }
+.tab.activo{ background:#2980b9; }
 
 /* ====== CONTENIDO ====== */
 .contenido-dia{
     display:none;
     background:white;
     border-radius:14px;
-    padding:15px;
-    margin-bottom:18px; /* 👈 permite varios días abiertos */
+    padding:15px 45px 15px 15px;
+    margin-bottom:18px;
+    position:relative;
     box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* ====== ETIQUETA DÍA ====== */
+.etiqueta-dia{
+    position:absolute;
+    top:50%;
+    right:-35px;
+    transform:rotate(-90deg) translateY(-50%);
+    transform-origin:center;
+    background:#2980b9;
+    color:white;
+    font-weight:bold;
+    padding:6px 16px;
+    border-radius:10px;
+    letter-spacing:1px;
+    font-size:13px;
 }
 
 /* ====== CLASE ====== */
@@ -67,26 +79,16 @@ h1{
     border-radius:8px;
 }
 
-.clase:last-child{
-    border-bottom:none;
-}
+.clase:last-child{ border-bottom:none; }
+.clase:hover{ background:#ecf0f1; }
 
-.clase:hover{
-    background:#ecf0f1;
-}
-
-.hora{
-    font-weight:bold;
-}
+.hora{ font-weight:bold; }
 
 /* ====== MODAL ====== */
 .modal{
     display:none;
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    inset:0;
     background:rgba(0,0,0,0.6);
 }
 
@@ -116,7 +118,6 @@ h1{
 <div class="contenedor">
 <h1>HORARIO ESCOLAR</h1>
 
-<!-- TABS -->
 <div class="tabs">
     <div class="tab" onclick="toggleDia('lunes', this)">LUNES</div>
     <div class="tab" onclick="toggleDia('martes', this)">MARTES</div>
@@ -125,8 +126,9 @@ h1{
     <div class="tab" onclick="toggleDia('viernes', this)">VIERNES</div>
 </div>
 
-<!-- ====== LUNES ====== -->
+<!-- LUNES -->
 <div id="lunes" class="contenido-dia">
+    <div class="etiqueta-dia">LUNES</div>
     <div class="clase" onclick="abrirModal('INMUNOLOGÍA','ERNESTO ALVARADO FLORES')">
         <span class="hora">7:00 - 10:00</span><br>INMUNOLOGÍA
     </div>
@@ -141,8 +143,9 @@ h1{
     </div>
 </div>
 
-<!-- ====== MARTES ====== -->
+<!-- MARTES -->
 <div id="martes" class="contenido-dia">
+    <div class="etiqueta-dia">MARTES</div>
     <div class="clase" onclick="abrirModal('BIOINFORMÁTICA','VICTOR RAMÓN HERRERA ACOSTA')">
         <span class="hora">7:00 - 8:00</span><br>BIOINFORMÁTICA
     </div>
@@ -157,8 +160,9 @@ h1{
     </div>
 </div>
 
-<!-- ====== MIÉRCOLES ====== -->
+<!-- MIÉRCOLES -->
 <div id="miercoles" class="contenido-dia">
+    <div class="etiqueta-dia">MIÉRCOLES</div>
     <div class="clase" onclick="abrirModal('HEMATOLOGÍA','CARLOS ALBERTO ROCHA RODRÍGUEZ')">
         <span class="hora">8:00 - 10:00</span><br>HEMATOLOGÍA
     </div>
@@ -167,15 +171,17 @@ h1{
     </div>
 </div>
 
-<!-- ====== JUEVES ====== -->
+<!-- JUEVES -->
 <div id="jueves" class="contenido-dia">
+    <div class="etiqueta-dia">JUEVES</div>
     <div class="clase" onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','DOCENTE NO ASIGNADO')">
         <span class="hora">7:00 - 19:00</span><br>PRÁCTICA CLÍNICA GENERAL
     </div>
 </div>
 
-<!-- ====== VIERNES ====== -->
+<!-- VIERNES -->
 <div id="viernes" class="contenido-dia">
+    <div class="etiqueta-dia">VIERNES</div>
     <div class="clase" onclick="abrirModal('PRÁCTICA CLÍNICA GENERAL','DOCENTE NO ASIGNADO')">
         <span class="hora">7:00 - 19:00</span><br>PRÁCTICA CLÍNICA GENERAL
     </div>
