@@ -5,21 +5,31 @@
 <title>HORARIO ESCOLAR 5° "J"</title>
 
 <style>
+/* ====== FONDO GENERAL ====== */
 body{
     font-family: Arial, sans-serif;
-    background:#f4f6f9;
+    background:#e3f2fd; /* azul bajito */
     display:flex;
     justify-content:center;
-    padding-top:60px;
+    min-height:100vh;
+    margin:0;
 }
 
+/* ====== CONTENEDOR ====== */
 .contenedor{
     width:540px;
+    margin-top:140px; /* 👈 más abajo al inicio */
+    transition:margin-top 0.4s ease; /* 👈 animación subida */
+}
+
+.contenedor.subido{
+    margin-top:60px; /* 👈 sube cuando se abre un día */
 }
 
 h1{
     text-align:center;
     margin-bottom:30px;
+    color:#1a237e;
 }
 
 /* ====== DÍAS ====== */
@@ -33,56 +43,68 @@ h1{
     flex:1;
     text-align:center;
     padding:14px;
-    background:#34495e;
+    background:#3949ab;
     color:white;
     cursor:pointer;
     font-weight:bold;
-    border-radius:14px;
+    border-radius:16px;
     transition:0.3s;
 }
 
-.tab:hover{ background:#2c3e50; }
-.tab.activo{ background:#2980b9; }
+.tab:hover{
+    background:#303f9f;
+}
+
+.tab.activo{
+    background:#1e88e5;
+}
 
 /* ====== CONTENIDO ====== */
 .contenido-dia{
     display:none;
     background:white;
-    border-radius:14px;
+    border-radius:16px;
     padding:15px 45px 15px 15px;
     margin-bottom:18px;
     position:relative;
-    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    box-shadow:0 6px 14px rgba(0,0,0,0.12);
 }
 
 /* ====== ETIQUETA DÍA ====== */
 .etiqueta-dia{
     position:absolute;
     top:50%;
-    right:-35px;
+    right:-38px;
     transform:rotate(-90deg) translateY(-50%);
-    transform-origin:center;
-    background:#2980b9;
+    background:#1e88e5;
     color:white;
     font-weight:bold;
-    padding:6px 16px;
-    border-radius:10px;
-    letter-spacing:1px;
+    padding:6px 18px;
+    border-radius:12px;
     font-size:13px;
+    letter-spacing:1px;
 }
 
 /* ====== CLASE ====== */
 .clase{
     padding:12px;
-    border-bottom:1px solid #ddd;
+    border-bottom:1px solid #e0e0e0;
     cursor:pointer;
     border-radius:8px;
 }
 
-.clase:last-child{ border-bottom:none; }
-.clase:hover{ background:#ecf0f1; }
+.clase:last-child{
+    border-bottom:none;
+}
 
-.hora{ font-weight:bold; }
+.clase:hover{
+    background:#f1f5f9;
+}
+
+.hora{
+    font-weight:bold;
+    color:#1a237e;
+}
 
 /* ====== MODAL ====== */
 .modal{
@@ -98,24 +120,24 @@ h1{
     margin:20% auto;
     padding:25px;
     text-align:center;
-    border-radius:14px;
+    border-radius:16px;
 }
 
 .cerrar{
     margin-top:20px;
-    padding:8px 22px;
-    background:#c0392b;
+    padding:8px 24px;
+    background:#d32f2f;
     color:white;
     border:none;
     cursor:pointer;
-    border-radius:8px;
+    border-radius:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="contenedor">
+<div class="contenedor" id="contenedor">
 <h1>HORARIO ESCOLAR</h1>
 
 <div class="tabs">
@@ -201,6 +223,7 @@ h1{
 <script>
 function toggleDia(id, tab){
     const contenido = document.getElementById(id);
+    const contenedor = document.getElementById("contenedor");
 
     if(contenido.style.display === "block"){
         contenido.style.display = "none";
@@ -208,6 +231,7 @@ function toggleDia(id, tab){
     }else{
         contenido.style.display = "block";
         tab.classList.add("activo");
+        contenedor.classList.add("subido"); // 👈 sube al seleccionar
     }
 }
 
