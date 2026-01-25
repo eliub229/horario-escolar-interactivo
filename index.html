@@ -8,7 +8,7 @@
 /* ====== FONDO GENERAL ====== */
 body{
     font-family: Arial, sans-serif;
-    background:#e3f2fd; /* azul bajito */
+    background:#e3f2fd;
     display:flex;
     justify-content:center;
     min-height:100vh;
@@ -18,12 +18,12 @@ body{
 /* ====== CONTENEDOR ====== */
 .contenedor{
     width:540px;
-    margin-top:140px; /* 👈 más abajo al inicio */
-    transition:margin-top 0.4s ease; /* 👈 animación subida */
+    margin-top:140px;
+    transition:margin-top 0.4s ease;
 }
 
 .contenedor.subido{
-    margin-top:60px; /* 👈 sube cuando se abre un día */
+    margin-top:60px;
 }
 
 h1{
@@ -32,7 +32,7 @@ h1{
     color:#1a237e;
 }
 
-/* ====== DÍAS ====== */
+/* ====== TABS ====== */
 .tabs{
     display:flex;
     gap:12px;
@@ -51,13 +51,8 @@ h1{
     transition:0.3s;
 }
 
-.tab:hover{
-    background:#303f9f;
-}
-
-.tab.activo{
-    background:#1e88e5;
-}
+.tab:hover{ background:#303f9f; }
+.tab.activo{ background:#1e88e5; }
 
 /* ====== CONTENIDO ====== */
 .contenido-dia{
@@ -70,20 +65,39 @@ h1{
     box-shadow:0 6px 14px rgba(0,0,0,0.12);
 }
 
+/* ====== ETIQUETA DÍA ====== */
 .etiqueta-dia{
     position:absolute;
-    top:22px; /* 👈 TODAS a la misma altura */
-    right:-38px;
+    top:22px;
+    right:-46px;
+
+    width:110px;
+    text-align:center;
+
     transform:rotate(-90deg);
     background:#1e88e5;
     color:white;
     font-weight:bold;
-    padding:6px 18px;
+    padding:6px 0;
     border-radius:12px;
     font-size:13px;
     letter-spacing:1px;
+
+    opacity:0;
+    animation:entrarEtiqueta 0.5s ease forwards;
 }
 
+/* ====== ANIMACIÓN ETIQUETA ====== */
+@keyframes entrarEtiqueta{
+    from{
+        opacity:0;
+        transform:rotate(-90deg) translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:rotate(-90deg) translateY(0);
+    }
+}
 
 /* ====== CLASE ====== */
 .clase{
@@ -93,13 +107,8 @@ h1{
     border-radius:8px;
 }
 
-.clase:last-child{
-    border-bottom:none;
-}
-
-.clase:hover{
-    background:#f1f5f9;
-}
+.clase:last-child{ border-bottom:none; }
+.clase:hover{ background:#f1f5f9; }
 
 .hora{
     font-weight:bold;
@@ -231,7 +240,7 @@ function toggleDia(id, tab){
     }else{
         contenido.style.display = "block";
         tab.classList.add("activo");
-        contenedor.classList.add("subido"); // 👈 sube al seleccionar
+        contenedor.classList.add("subido");
     }
 }
 
